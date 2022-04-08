@@ -23,12 +23,28 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation('org.springframework.boot:spring-boot-starter-web') {
+		exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+		exclude group: "commons-logging", module: "commons-logging"
+		exclude group: "spring-boot-starter-logging", module: "spring-boot-starter-logging"
+	}
+	implementation 'org.springframework.boot:spring-boot-starter-undertow'
+	implementation 'org.slf4j:jcl-over-slf4j'
+	implementation 'ch.qos.logback:logback-classic'
+	implementation 'com.google.cloud:google-cloud-logging-logback:0.121.3-alpha'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.2'
+
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'net.logstash.logback:logstash-logback-encoder:6.4'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {

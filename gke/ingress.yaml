@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress-clalanne
+  name: ingress-hello-world
 spec:
   rules:
   - http:
@@ -10,6 +10,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: payment-service-clalanne
+            name: hello-world11
             port:
               number: 80

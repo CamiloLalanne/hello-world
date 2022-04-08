@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payment-service-clalanne
+  name: hello-world
 spec:
   selector:
     matchLabels:
-      app: payment-service-clalanne
+      app: hello-world
   replicas: 1
   template:
     metadata:
       labels:
-        app: payment-service-clalanne
+        app: hello-world
     spec:
       containers:
-      - name: payment-service-clalanne
+      - name: hello-world
         resources:
           limits:
             cpu: 300m
@@ -21,7 +21,7 @@ spec:
           requests:
             cpu: 200m
             memory: 300Mi
-        image: us.gcr.io/"ID-PROJECT"/payment-service-clalanne:latest
+        image: us.gcr.io/gcp-lab11/hello-world:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 8080
@@ -43,4 +43,4 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 30
           periodSeconds: 30
-          timeoutSeconds: 30     
+          timeoutSeconds: 30
