@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+logging:
+  level:
+    root: info
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
