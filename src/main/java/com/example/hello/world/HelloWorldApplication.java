@@ -24,7 +24,7 @@ public class HelloWorldApplication {
 	//parentesis y tomaria directamente el nombre de la variable como name del path variable
 	public String saludo(@PathVariable(name ="saludo") String saludo){
 		log.info("Variable Saludo :" + saludo);
-		return saludo;
+		return saludo+" new";
 	}
 
 }
